@@ -16,7 +16,7 @@
       do {
         fibs[i] = fibs[i - 1] + fibs[i - 2];
         if ((fibs[i] % 2) === 0) {
-          sum = sum + fibs[i];
+          sum += fibs[i];
         };
         i++;
       } while (fibs[i-1] < 4000000);
@@ -32,7 +32,7 @@
       
         fibos[i+1] = fibos[i - 1] + fibos[i];
         if ((fibos[i] % 2) === 0) {
-          sumOfFibs = sumOfFibs + fibos[i];
+          sumOfFibs += fibos[i];
         };
       };
       
