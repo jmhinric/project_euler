@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project Euler</title>
+  </head>
+  <body>
+    <h1>Project Euler Problem #2</h1>
+    <script type="text/javascript">
+      
+
+      // Do-While loop version      
+      var fibs = [0, 1];
+      var sum = 0;
+      var i = 2;
+
+      do {
+        fibs[i] = fibs[i - 1] + fibs[i - 2];
+        if ((fibs[i] % 2) === 0) {
+          sum = sum + fibs[i];
+        };
+        i++;
+      } while (fibs[i-1] < 4000000);
+
+      console.log("Sum is " + sum);
+
+      // ******************************************************************************************
+      // For loop version
+      var fibos = [0, 1];
+      var sumOfFibs = 0;
+
+      for (i=1; fibos[i]<4000000; i++) {
+      
+        fibos[i+1] = fibos[i - 1] + fibos[i];
+        if ((fibos[i] % 2) === 0) {
+          sumOfFibs = sumOfFibs + fibos[i];
+        };
+      };
+      
+      console.log("sumOfFibs is " + sumOfFibs);
+
+    </script>
+  </body>
+</html>
