@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Project Euler Problem 22</title>
+
+  <script type="text/javascript" src="lib/underscore.js"></script>
+  <script type="text/javascript" src="names.js"></script>
+  <script type="text/javascript">
+    
+    var alphabet = ("abcdefghijklmnopqrstuvwxyz").split("");
+    var sortedNames = _.sortBy(names);
+    sortedNames = _.map(sortedNames, function(name){
+      return name.toLowerCase();
+    });
+
+    var nameValues = _.map(sortedNames, function(name){
+      var alphValues = _.map(name.split(""), function(letter) {
+        return _.indexOf(alphabet, letter) + 1;
+      });
+      return _.reduce(alphValues, function(sum, num){
+        return sum + parseInt(num);
+      }, 0);
+    });
+
+    var answer = _.reduce(nameValues, function(sum, nameValue, index) {
+      return sum + (parseInt(nameValue) * (index + 1));
+    }, 0);
+
+    console.log(answer);
+
+  </script>
+
+</head>
+
+<body>
+</body>
+</html>
