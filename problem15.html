@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Project Euler Problem 15</title>
+
+  <script type="text/javascript" src="lib/underscore.js"></script>
+  <!-- // <script type="text/javascript" src="lib/jquery.js"></script> -->
+  <script type="text/javascript">
+    
+
+    // Pascal's Triangle
+
+    var lattice = [[0], [1,2]];
+    function latticePaths(row) {
+      for(var n = 2; n <= row; n++) {
+        buildLatt(n);
+      }
+      return lattice[row][row];
+    }
+
+    function buildLatt(n) {
+      for(var i = 0; i < n; i++) {
+        lattice.push([]);
+        (i === 0) ? lattice[n][i] = 1 : lattice[n][i] = previousSum(n-1,i);
+      }
+      lattice[n][n] = lattice[n][n-1] * 2;
+    }
+
+    function previousSum(col, row) {
+      var sum = 0;
+      for (var j = 0; j <= row; j++) {
+        sum += lattice[col][j];
+      }
+      return sum;
+    }
+
+    var num = 8;
+    console.log("Lattice paths for " + num + ": " + latticePaths(num));
+    
+
+  </script>
+
+</head>
+
+<body>
+</body>
+</html>
+
+

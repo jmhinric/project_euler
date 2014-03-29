@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Euler Problem 14</title>
+
+  <script type="text/javascript" src="lib/underscore.js"></script>
+  <!-- // <script type="text/javascript" src="lib/jquery.js"></script> -->
+  <script type="text/javascript">
+    
+    function collatz() {
+      var collatzLength = [];
+      for(var i = 1; i < 1000000; i++) {
+        var collNums = [];
+        var c = i;
+        while (c > 1) {
+          c % 2 === 0 ? c /= 2 : c = c * 3 + 1;
+          collNums.push(c);
+        }
+        collatzLength.push(collNums.length);
+      }
+      
+      // return the index of the largest Collatz sequence
+      return _.indexOf(collatzLength, _.max(collatzLength))+1;
+    }
+
+    console.log(collatz());
+
+  </script>
+
+</head>
+
+<body>
+</body>
+</html>
+
+

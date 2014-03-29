@@ -15,7 +15,7 @@
 
       do {
         fibs[i] = fibs[i - 1] + fibs[i - 2];
-        if ((fibs[i] % 2) === 0) {
+        if ((fibs[i] % 2) === 0 && fibs[i] < 4000000) {
           sum += fibs[i];
         };
         i++;
@@ -37,7 +37,6 @@
       };
       
       console.log("sumOfFibs is " + sumOfFibs);
-
     </script>
   </body>
 </html>
