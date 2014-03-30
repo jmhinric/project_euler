@@ -1,3 +1,4 @@
+# 2D array that holds the triangle of numbers
 nums = [
   [75, 64, 82, 10, 65, 34, 67, 92, 33, 29, 14, 57, 48, 31, 23],
   [95, 47, 87, 47, 3, 63, 70, 70, 94, 51, 17, 29, 40, 4],
@@ -16,7 +17,8 @@ nums = [
   [4]
 ]
 
-
+# There are 2^14 ways to traverse the triangle
+# First build an array of 0's and 1's representing these paths
 two_fourteen = [[0], [1]]
 (1..13).each do |num|
   zeros = []
@@ -27,7 +29,7 @@ two_fourteen = [[0], [1]]
   two_fourteen = zeros + ones
 end
 
-
+# Map each path of 0's and 1's to the numbers in the triangle
 paths = []
 two_fourteen.each do |path|
   row = 0
@@ -39,8 +41,11 @@ two_fourteen.each do |path|
   paths << [75] + number_path
 end
 
+# Sum the path lengths
 path_lengths = paths.map do |path|
   path.reduce(0) { |sum, num| sum + num }
 end
 
+# Return the maximum path length
 puts path_lengths.max
+
